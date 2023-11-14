@@ -67,21 +67,28 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         {
             state = BattleState.WON;
+            enemyHUD.SetHP(enemyUnit.currentHP = 0);
             EndBattle();
         }
         else
         {
             state = BattleState.ENEMYTURN;
+            enemyHUD.SetHP(enemyUnit.currentHP);
+            dialogueText.text = "You deal " + playerUnit.damage + " damage...";
+
+            yield return new WaitForSeconds(2f);
             StartCoroutine(EnemyTurn());
         }
-
 
     }
 
     IEnumerator EnemyTurn()
     {
-        //if (enemy = mage)
-        //{
+        if (enemyUnit.MagicPoints >= enemyUnit.MagicPointCost)
+        {
+
+
+            enemyUnit.ReducePoints(enemyUnit.MagicPointCost);
             dialogueText.text = enemyUnit.unitName + " attacks!";
 
             yield return new WaitForSeconds(1f);
@@ -89,6 +96,8 @@ public class BattleSystem : MonoBehaviour
             bool isDead = playerUnit.TakeDamage(enemyUnit.Magicdamage);
 
             playerHUD.SetHP(playerUnit.currentHP);
+            enemyHUD.SetMP(enemyUnit.MagicPoints);
+        
 
             yield return new WaitForSeconds(1f);
 
@@ -102,7 +111,7 @@ public class BattleSystem : MonoBehaviour
                 state = BattleState.PLAYERTURN;
                 PlayerTurn();
             }
-        //}
+        }
 
     }
 
@@ -138,6 +147,7 @@ public class BattleSystem : MonoBehaviour
             bool isDead = enemyUnit.TakeDamage(playerUnit.Magicdamage);
 
             enemyHUD.SetHP(enemyUnit.currentHP);
+            playerHUD.SetMP(playerUnit.MagicPoints);
             dialogueText.text = "You attacked with a magic attack ";
 
             yield return new WaitForSeconds(2f);
@@ -145,11 +155,16 @@ public class BattleSystem : MonoBehaviour
             if (isDead)
             {
                 state = BattleState.WON;
+                enemyHUD.SetHP(enemyUnit.currentHP = 0);
                 EndBattle();
             }
             else
             {
                 state = BattleState.ENEMYTURN;
+                enemyHUD.SetHP(enemyUnit.currentHP);
+                dialogueText.text = "You deal " + playerUnit.damage + " of Magic damage...";
+
+                yield return new WaitForSeconds(2f);
                 StartCoroutine(EnemyTurn());
             }
         }
@@ -163,18 +178,18 @@ public class BattleSystem : MonoBehaviour
 
 
 
-    //IEnumerator PlayerHeal()
-    //{
-    //    playerUnit.Heal(5);
+    IEnumerator PlayerHeal()
+    {
+        playerUnit.Heal(5);
 
-    //    playerHUD.SetHP(playerUnit.currentHP);
-    //    dialogueText.text = "You feel renewed strength!";
+        playerHUD.SetHP(playerUnit.currentHP);
+        dialogueText.text = "You feel renewed strength!";
 
-    //    yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f);
 
-    //    state = BattleState.ENEMYTURN;
-    //    StartCoroutine(EnemyTurn());
-    //}
+        state = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
 
     public void OnAttackButton()
     {
@@ -192,4 +207,13 @@ public class BattleSystem : MonoBehaviour
 
         StartCoroutine(PlayerMagicAttack());
     }
+
+    public void OnHealButton()
+    {
+        if (state != BattleState.PLAYERTURN)
+            return;
+
+        StartCoroutine(PlayerHeal());
+    }
 }
+
