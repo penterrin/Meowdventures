@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
+	public GameObject Barrera;
 
 	public CharacterController2D controller;
 	public Animator animator;
@@ -43,6 +45,17 @@ public class PlayerMovement : MonoBehaviour {
 		{
             SceneManager.LoadScene(2);
         }
+        if (other.gameObject.CompareTag("Portal"))
+        {
+            SceneManager.LoadScene(0);
+        }
+        if (other.gameObject.CompareTag("Barrier"))
+        {
+
+           Destroy(other.gameObject);
+            
+        }
+        
     }
 
 	public void OnLanding ()
@@ -56,4 +69,7 @@ public class PlayerMovement : MonoBehaviour {
 		controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
 		jump = false;
 	}
+
+
+    
 }
