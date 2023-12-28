@@ -11,7 +11,11 @@ public class Platform : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("PlayerDeath");
             SceneManager.LoadScene(1);
+
+           
+            Debug.Log("Sound");
         }
     }
    

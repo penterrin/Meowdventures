@@ -44,10 +44,14 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Enemys"))
 		{
             SceneManager.LoadScene(2);
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
         }
         if (other.gameObject.CompareTag("Portal"))
         {
             SceneManager.LoadScene(0);
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
         }
         if (other.gameObject.CompareTag("Barrier"))
         {
