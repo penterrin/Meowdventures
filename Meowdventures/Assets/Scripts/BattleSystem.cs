@@ -23,6 +23,9 @@ public class BattleSystem : MonoBehaviour
     public BattleHud playerHUD;
     public BattleHud enemyHUD;
 
+    private int enemiesDefeatedCount = 0;
+
+
 
     public BattleState state;
     // Start is called before the first frame update
@@ -121,6 +124,8 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.WON)
         {
             dialogueText.text = "You won!";
+            enemiesDefeatedCount++;
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             SceneManager.LoadScene(1);
         }
         else if (state == BattleState.LOST)
@@ -215,5 +220,10 @@ public class BattleSystem : MonoBehaviour
 
         StartCoroutine(PlayerHeal());
     }
+    public int GetEnemiesDefeatedCount()
+    {
+        return enemiesDefeatedCount;
+    }
+
 }
 

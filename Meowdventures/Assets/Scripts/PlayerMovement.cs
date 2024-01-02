@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
-	public GameObject Barrera;
+	//public GameObject Barrera;
 
 	public CharacterController2D controller;
 	public Animator animator;
@@ -15,9 +15,12 @@ public class PlayerMovement : MonoBehaviour {
 	float horizontalMove = 0f;
 	bool jump = false;
 	bool crouch = false;
-	
-	// Update is called once per frame
-	void Update () {
+
+    bool isTouchingEnemy = false;
+
+
+    // Update is called once per frame
+    void Update () {
 
 		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 		
@@ -29,23 +32,32 @@ public class PlayerMovement : MonoBehaviour {
 			animator.SetBool("IsJumping", true);
 		}
 
-		if (Input.GetButtonDown("Crouch"))
-		{
-			crouch = true;
-		} else if (Input.GetButtonUp("Crouch"))
-		{
-			crouch = false;
-		}
+        //if (Input.GetButtonDown("Crouch"))
+        //{
+        //	crouch = true;
+        //} else if (Input.GetButtonUp("Crouch"))
+        //{
+        //	crouch = false;
+        //}
 
-	}
+        if (Input.GetKeyDown(KeyCode.E) && isTouchingEnemy)
+        {
+            // Inicia el combate por turnos
+            SceneManager.LoadScene(2);
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
+        }
+
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemys"))
 		{
-            SceneManager.LoadScene(2);
-            FindObjectOfType<AudioManager>().StopPlaying("Theme");
-            FindObjectOfType<AudioManager>().Play("CombatMusic");
+            isTouchingEnemy = true;
+            //SceneManager.LoadScene(2);
+            //FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            //FindObjectOfType<AudioManager>().Play("CombatMusic");
         }
         if (other.gameObject.CompareTag("Portal"))
         {
@@ -53,16 +65,24 @@ public class PlayerMovement : MonoBehaviour {
             FindObjectOfType<AudioManager>().StopPlaying("Theme");
             FindObjectOfType<AudioManager>().Play("CombatMusic");
         }
-        if (other.gameObject.CompareTag("Barrier"))
-        {
+        //if (other.gameObject.CompareTag("Barrier"))
+        //{
 
-           Destroy(other.gameObject);
+        //   Destroy(other.gameObject);
             
-        }
+        //}
         
     }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            isTouchingEnemy = false;
+        }
+    }
 
-	public void OnLanding ()
+
+    public void OnLanding ()
 	{
         animator.SetBool("IsJumping", false);
     }
