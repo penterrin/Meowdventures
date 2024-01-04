@@ -11,17 +11,19 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    public Transform playerRespawnPoint;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
-        { 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             if (GameIsPaused)
             {
                 Resume();
@@ -48,6 +50,10 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        RespawnPlayer();
+
+        new WaitForSeconds(4f);
+
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1f;
     }
@@ -57,4 +63,19 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("quitting game");
         Application.Quit();
     }
+
+    private void RespawnPlayer()
+    {
+        // Busca el objeto del jugador en la escena actual
+        Player player = FindObjectOfType<Player>();
+
+        // Si se encuentra el jugador, colócalo en el punto de respawn
+        if (player != null && playerRespawnPoint != null)
+        {
+            player.transform.position = playerRespawnPoint.position;
+        }
+        Debug.Log("Respawn");
+
+    }
+
 }

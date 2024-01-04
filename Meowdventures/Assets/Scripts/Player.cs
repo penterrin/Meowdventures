@@ -10,8 +10,12 @@ public class Player : MonoBehaviour
         // Llama a LoadPlayer cuando inicia la escena
         LoadPlayer();
 
-        // Llama a SavePlayer cada segundo después de un segundo de la inicialización
-        InvokeRepeating("SavePlayer", 1f, 1f);
+        //// Llama a SavePlayer cada segundo después de un segundo de la inicialización
+        //InvokeRepeating("SavePlayer", 1f, 1f);
+    }
+    private void Update()
+    {
+        SavePlayer();
     }
 
     private void SavePlayer()
