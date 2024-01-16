@@ -126,7 +126,7 @@ public class BattleSystem : MonoBehaviour
             dialogueText.text = "You won!";
             enemiesDefeatedCount++;
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("Main");
         }
         else if (state == BattleState.LOST)
         {

@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E) && isTouchingEnemy)
         {
             // Inicia el combate por turnos
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("Game");
             FindObjectOfType<AudioManager>().StopPlaying("Theme");
             FindObjectOfType<AudioManager>().Play("CombatMusic");
         }
@@ -61,7 +61,8 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (other.gameObject.CompareTag("Portal"))
         {
-            SceneManager.LoadScene(0);
+            
+            SceneManager.LoadScene("Menu");
             FindObjectOfType<AudioManager>().StopPlaying("Theme");
             FindObjectOfType<AudioManager>().Play("CombatMusic");
         }
