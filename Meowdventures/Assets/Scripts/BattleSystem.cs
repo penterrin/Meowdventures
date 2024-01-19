@@ -7,8 +7,21 @@ using UnityEngine.SceneManagement;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
+
+
+
 public class BattleSystem : MonoBehaviour
 {
+    public Animator playerAnimator;
+
+    //private Animator playerAnimator; // Animator del jugador
+    //public Animator animator;
+
+
+
+
+
+
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
 
@@ -33,6 +46,19 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.START;
         StartCoroutine(SetupBattle());
+
+
+        // Encuentra el objeto del jugador y su Animator
+        GameObject playerObject = GameObject.FindWithTag("Player"); // Asume que el jugador tiene una etiqueta "Player"
+
+        if (playerObject != null)
+        {
+            playerAnimator = playerObject.GetComponent<Animator>();
+        }
+        else
+        {
+            Debug.LogError("No se pudo encontrar el objeto del jugador.");
+        }
     }
 
     IEnumerator SetupBattle()
@@ -60,10 +86,24 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerAttack()
     {
 
+       
+
+
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
         enemyHUD.SetHP(enemyUnit.currentHP);
         dialogueText.text = "You attacked with a normal attack ";
+
+        // Establecer animación de ataque
+        playerAnimator.SetBool("Attack", true);
+        playerAnimator.SetBool("Idle", false);
+
+        yield return new WaitForSeconds(0.5f);
+
+        // Reiniciar animaciones
+        playerAnimator.SetBool("Idle", true);
+        playerAnimator.SetBool("Attack", false);
+
 
         yield return new WaitForSeconds(2f);
 
@@ -83,10 +123,13 @@ public class BattleSystem : MonoBehaviour
             StartCoroutine(EnemyTurn());
         }
 
+
+        playerAnimator.SetBool("Idle", true);
     }
 
     IEnumerator EnemyTurn()
     {
+        playerAnimator.SetBool("Attack", false);
         if (enemyUnit.MagicPoints >= enemyUnit.MagicPointCost)
         {
 
@@ -115,7 +158,7 @@ public class BattleSystem : MonoBehaviour
                 PlayerTurn();
             }
         }
-
+       
     }
 
 
@@ -132,28 +175,59 @@ public class BattleSystem : MonoBehaviour
         {
             dialogueText.text = "You were defeated.";
         }
+        playerAnimator.SetBool("Attack", false);
+
     }
 
     void PlayerTurn()
     {
+
         dialogueText.text = "Choose an action";
+
+      
+        playerAnimator.SetBool("Idle", true);
+        playerAnimator.SetBool("Attack", false);
     }
 
 
     IEnumerator PlayerMagicAttack()
     {
+
+       
+
+
+        //// Cambiar al estado de reposo
+        //playerAnimator.SetBool("Idle", true);
+
         // Check if the player has enough magic points to use the magic attack
         if (playerUnit.MagicPoints >= playerUnit.MagicPointCost)
         {
+           
+
             // Deduct the magic point cost
             playerUnit.ReducePoints(playerUnit.MagicPointCost);
 
             // Perform the magic attack
             bool isDead = enemyUnit.TakeDamage(playerUnit.Magicdamage);
+            
+
 
             enemyHUD.SetHP(enemyUnit.currentHP);
             playerHUD.SetMP(playerUnit.MagicPoints);
             dialogueText.text = "You attacked with a magic attack ";
+
+
+            // Establecer animación de ataque
+            playerAnimator.SetBool("Attack", true);
+            playerAnimator.SetBool("Idle", false);
+
+            yield return new WaitForSeconds(0.5f);
+
+            // Reiniciar animaciones
+            playerAnimator.SetBool("Idle", true);
+            playerAnimator.SetBool("Attack", false);
+
+
 
             yield return new WaitForSeconds(2f);
 
@@ -179,12 +253,15 @@ public class BattleSystem : MonoBehaviour
             // Handle the case where the player doesn't have enough magic points to perform the magic attack
             // You can display a message or take appropriate actions here.
         }
+
+        playerAnimator.SetBool("Idle", true);
     }
 
 
 
     IEnumerator PlayerHeal()
     {
+        playerAnimator.SetBool("Attack", false);
         playerUnit.Heal(5);
 
         playerHUD.SetHP(playerUnit.currentHP);
@@ -194,10 +271,13 @@ public class BattleSystem : MonoBehaviour
 
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
+
+        playerAnimator.SetBool("Attack", false);
     }
 
     public void OnAttackButton()
     {
+        playerAnimator.SetBool("Attack", true);
         if (state != BattleState.PLAYERTURN)
             return;
 
@@ -207,6 +287,7 @@ public class BattleSystem : MonoBehaviour
 
     public void OnMagicAttackButton()
     {
+        playerAnimator.SetBool("Attack", true);
         if (state != BattleState.PLAYERTURN)
             return;
 
@@ -215,6 +296,7 @@ public class BattleSystem : MonoBehaviour
 
     public void OnHealButton()
     {
+        playerAnimator.SetBool("Attack", false);
         if (state != BattleState.PLAYERTURN)
             return;
 
