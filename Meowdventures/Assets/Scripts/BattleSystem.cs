@@ -25,7 +25,9 @@ public class BattleSystem : MonoBehaviour
 
     private int enemiesDefeatedCount = 0;
 
+    public Animator animator;
 
+    
 
     public BattleState state;
     // Start is called before the first frame update
@@ -59,6 +61,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+        animator.SetTrigger("Attacking");
 
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
