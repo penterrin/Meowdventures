@@ -11,12 +11,17 @@ public class PlayerMovement : MonoBehaviour {
 	public Animator animator;
 
 	public float runSpeed = 40f;
+    public float wallJumpForce = 20f;  // Fuerza para el Wall Jump
+    public float wallJumpCooldown = 0.5f;  // Tiempo de espera entre Wall Jumps
 
-	float horizontalMove = 0f;
+    float horizontalMove = 0f;
 	bool jump = false;
 	bool crouch = false;
 
     bool isTouchingEnemy = false;
+
+    bool isTouchingWall = false;
+    bool canWallJump = true;  // Variable para gestionar el cooldown del Wall Jump
 
 
     // Update is called once per frame
@@ -28,9 +33,17 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (Input.GetButtonDown("Jump"))
 		{
-			jump = true;
-			animator.SetBool("IsJumping", true);
-		}
+            // Si el jugador está tocando una pared, permitir el wall jump
+            if (isTouchingWall)
+            {
+                WallJump();
+            }
+            else
+            {
+                jump = true;
+                animator.SetBool("IsJumping", true);
+            }
+        }
 
         //if (Input.GetButtonDown("Crouch"))
         //{
@@ -49,6 +62,29 @@ public class PlayerMovement : MonoBehaviour {
         }
 
     }
+
+
+    private void WallJump()
+    {
+        // Realiza el Wall Jump
+        controller.Move(wallJumpForce * -transform.localScale.x, false, true);
+
+        // Restablece la variable de salto y la animación
+        jump = false;
+        animator.SetBool("IsJumping", false);
+
+        // Inicia el cooldown del Wall Jump
+        StartCoroutine(WallJumpCooldown());
+    }
+
+
+    IEnumerator WallJumpCooldown()
+    {
+        canWallJump = false;
+        yield return new WaitForSeconds(wallJumpCooldown);
+        canWallJump = true;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -70,15 +106,25 @@ public class PlayerMovement : MonoBehaviour {
         //{
 
         //   Destroy(other.gameObject);
-            
+
         //}
-        
+
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            isTouchingWall = true;
+        }
+
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemys"))
         {
             isTouchingEnemy = false;
+        }
+
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            isTouchingWall = false;
         }
     }
 
