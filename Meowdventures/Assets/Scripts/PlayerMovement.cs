@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public float runSpeed = 40f;
     public float wallJumpForce = 20f;  // Fuerza para el Wall Jump
-    public float wallJumpCooldown = 0.5f;  // Tiempo de espera entre Wall Jumps
+    public float wallJumpCooldown = 1f;  // Tiempo de espera entre Wall Jumps
 
     public float timerduration = 60f; // duración del temporizador en segundos
     private float timer = 0f; // tiempo actual del temporizador

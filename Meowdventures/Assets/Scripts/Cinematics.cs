@@ -38,6 +38,6 @@ public class Cinematics : MonoBehaviour
     {
         // El evento se activa al finalizar el video
         // Puedes cargar la siguiente escena aquí
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Dialogues");
     }
 }
