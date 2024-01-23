@@ -3,16 +3,26 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour {
 	//public GameObject Barrera;
 
 	public CharacterController2D controller;
 	public Animator animator;
+    //public Transform SpawnPoint;
+    public Transform SpawnPoint;
 
-	public float runSpeed = 40f;
+
+    public float runSpeed = 40f;
     public float wallJumpForce = 20f;  // Fuerza para el Wall Jump
     public float wallJumpCooldown = 0.5f;  // Tiempo de espera entre Wall Jumps
+
+    public float timerduration = 60f; // duración del temporizador en segundos
+    private float timer = 0f; // tiempo actual del temporizador
+    public bool timerEnabled = false;
+    public TextMeshProUGUI timerText;
+
 
     float horizontalMove = 0f;
 	bool jump = false;
@@ -24,10 +34,30 @@ public class PlayerMovement : MonoBehaviour {
     bool canWallJump = true;  // Variable para gestionar el cooldown del Wall Jump
 
 
+
+
+    //void Start()
+    //{
+    //    timer = 0f; // Inicializamos el temporizador
+    //}
+
     // Update is called once per frame
     void Update () {
 
-		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+        if (timerEnabled)
+        {
+            timer += Time.deltaTime;
+
+            // Verificar el tiempo transcurrido y reiniciar al jugador si es necesario
+            if (timer >= timerduration)
+            {
+                RespawnPlayer();
+            }
+        }
+
+
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 		
 		animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
@@ -61,8 +91,18 @@ public class PlayerMovement : MonoBehaviour {
             FindObjectOfType<AudioManager>().Play("CombatMusic");
         }
 
+        UpdateTimerUI();
     }
 
+    void UpdateTimerUI()
+    {
+        if (timerText != null)
+        {
+            float remainingTime = Mathf.Max(0f, timerduration - timer);
+            string formattedTime = string.Format("{0:00}:{1:00}", Mathf.Floor(remainingTime / 60), remainingTime % 60);
+            timerText.text = formattedTime;
+        }
+    }
 
     private void WallJump()
     {
@@ -141,6 +181,13 @@ public class PlayerMovement : MonoBehaviour {
 		jump = false;
 	}
 
+    void RespawnPlayer()
+    {
+        // Colocar al jugador en el punto de respawn
+        transform.position = SpawnPoint.position;
 
-    
+        // Reiniciar el contador de tiempo
+        timer = 0f;
+    }
+
 }
