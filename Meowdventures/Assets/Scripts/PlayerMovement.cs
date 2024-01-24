@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerMovement : MonoBehaviour {
-	//public GameObject Barrera;
+    //public GameObject Barrera;
 
-	public CharacterController2D controller;
+    public Platform platformScript;
+
+    public CharacterController2D controller;
 	public Animator animator;
     //public Transform SpawnPoint;
     public Transform SpawnPoint;
@@ -54,6 +56,8 @@ public class PlayerMovement : MonoBehaviour {
             if (timer >= timerduration)
             {
                 RespawnPlayer();
+                // Reiniciar el temporizador desde el script de la plataforma
+                
             }
         }
 
@@ -184,7 +188,7 @@ public class PlayerMovement : MonoBehaviour {
 		jump = false;
 	}
 
-    void RespawnPlayer()
+    public void RespawnPlayer()
     {
         // Colocar al jugador en el punto de respawn
         transform.position = SpawnPoint.position;
@@ -193,6 +197,10 @@ public class PlayerMovement : MonoBehaviour {
         timer = 0f;
     }
 
-   
+    public void RestartTimer()
+    {
+        timer = 0f;
+    }
+
 
 }
