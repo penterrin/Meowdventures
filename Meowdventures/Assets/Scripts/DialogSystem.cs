@@ -10,9 +10,14 @@ public class DialogSystem : MonoBehaviour
     public string[] dialogs;
     private int currentDialogIndex = 0;
 
+   
+
     void Start()
     {
         ShowDialog();
+        //FindObjectOfType<AudioManager>().StopPlaying("Theme");
+        //FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+        //FindObjectOfType<AudioManager>().Play("Level2");
     }
 
     void Update()
@@ -33,7 +38,7 @@ public class DialogSystem : MonoBehaviour
         else
         {
             // Si todos los diálogos se han mostrado, cambiar a la siguiente escena
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
@@ -42,4 +47,6 @@ public class DialogSystem : MonoBehaviour
         currentDialogIndex++;
         ShowDialog();
     }
+
+    
 }

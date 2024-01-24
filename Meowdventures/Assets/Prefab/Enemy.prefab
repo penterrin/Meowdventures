@@ -48,12 +48,12 @@ MonoBehaviour:
   unitName: Mage
   unitLevel: 1
   damage: 0
-  Magicdamage: 20
-  MagicPoints: 200
-  MaxMagicPoints: 200
+  Magicdamage: 30
+  MagicPoints: 400
+  MaxMagicPoints: 400
   MagicPointCost: 20
-  maxHP: 120
-  currentHP: 120
+  maxHP: 250
+  currentHP: 250
 --- !u!1 &3485811872452148724
 GameObject:
   m_ObjectHideFlags: 0

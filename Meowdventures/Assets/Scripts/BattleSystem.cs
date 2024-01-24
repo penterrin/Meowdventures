@@ -61,6 +61,9 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+
+   
+
     IEnumerator SetupBattle()
     {
         GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
@@ -262,7 +265,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerHeal()
     {
         playerAnimator.SetBool("Attack", false);
-        playerUnit.Heal(5);
+        playerUnit.Heal(40);
 
         playerHUD.SetHP(playerUnit.currentHP);
         dialogueText.text = "You feel renewed strength!";

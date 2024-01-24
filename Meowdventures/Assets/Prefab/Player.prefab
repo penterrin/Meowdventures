@@ -156,8 +156,8 @@ MonoBehaviour:
   unitLevel: 1
   damage: 15
   Magicdamage: 30
-  MagicPoints: 200
-  MaxMagicPoints: 200
+  MagicPoints: 250
+  MaxMagicPoints: 250
   MagicPointCost: 30
   maxHP: 200
   currentHP: 200

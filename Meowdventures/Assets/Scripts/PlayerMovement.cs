@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour {
 	bool crouch = false;
 
     bool isTouchingEnemy = false;
+    
 
     bool isTouchingWall = false;
     bool canWallJump = true;  // Variable para gestionar el cooldown del Wall Jump
@@ -131,14 +132,15 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Enemys"))
 		{
             isTouchingEnemy = true;
+           
             //SceneManager.LoadScene(2);
             //FindObjectOfType<AudioManager>().StopPlaying("Theme");
             //FindObjectOfType<AudioManager>().Play("CombatMusic");
         }
         if (other.gameObject.CompareTag("Portal"))
         {
-            
-            SceneManager.LoadScene("Menu");
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             FindObjectOfType<AudioManager>().StopPlaying("Theme");
             FindObjectOfType<AudioManager>().Play("CombatMusic");
         }
@@ -160,6 +162,7 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Enemys"))
         {
             isTouchingEnemy = false;
+           
         }
 
         if (other.gameObject.CompareTag("Wall"))
@@ -189,5 +192,7 @@ public class PlayerMovement : MonoBehaviour {
         // Reiniciar el contador de tiempo
         timer = 0f;
     }
+
+   
 
 }
