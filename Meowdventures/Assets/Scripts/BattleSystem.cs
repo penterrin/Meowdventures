@@ -1,14 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
-
-
-
 
 public class BattleSystem : MonoBehaviour
 {
@@ -16,11 +12,6 @@ public class BattleSystem : MonoBehaviour
 
     //private Animator playerAnimator; // Animator del jugador
     //public Animator animator;
-
-
-
-
-
 
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
@@ -36,17 +27,20 @@ public class BattleSystem : MonoBehaviour
     public BattleHud playerHUD;
     public BattleHud enemyHUD;
 
-    private int enemiesDefeatedCount = 0;
-
-
+    private int enemiesDefeatedCount = 0; // NO VALE PARA NADA
+    private int attacksCount = 0;
 
     public BattleState state;
+
+    public UnityEngine.UI.Button attackButton;
+    public UnityEngine.UI.Button ultiButton;
+    public UnityEngine.UI.Button healButton;
+
     // Start is called before the first frame update
     void Start()
     {
         state = BattleState.START;
         StartCoroutine(SetupBattle());
-
 
         // Encuentra el objeto del jugador y su Animator
         GameObject playerObject = GameObject.FindWithTag("Player"); // Asume que el jugador tiene una etiqueta "Player"
@@ -59,22 +53,19 @@ public class BattleSystem : MonoBehaviour
         {
             Debug.LogError("No se pudo encontrar el objeto del jugador.");
         }
-    }
-
-
-   
+    }   
 
     IEnumerator SetupBattle()
     {
+        DisableButtons();
         GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = playerGO.GetComponent<Unit>();
-
 
         GameObject EnemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = EnemyGO.GetComponent<Unit>();
 
         dialogueText.text = "Defeat " + enemyUnit.unitName;
-
+        
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
 
@@ -82,16 +73,11 @@ public class BattleSystem : MonoBehaviour
 
         state = BattleState.PLAYERTURN;
         PlayerTurn();
-
     }
-
 
     IEnumerator PlayerAttack()
     {
-
-
-
-
+        DisableButtons();
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
         enemyHUD.SetHP(enemyUnit.currentHP);
@@ -106,7 +92,6 @@ public class BattleSystem : MonoBehaviour
         // Reiniciar animaciones
         playerAnimator.SetBool("Idle", true);
         playerAnimator.SetBool("Attack", false);
-
 
         yield return new WaitForSeconds(2f);
 
@@ -125,8 +110,6 @@ public class BattleSystem : MonoBehaviour
             yield return new WaitForSeconds(2f);
             StartCoroutine(EnemyTurn());
         }
-
-
         playerAnimator.SetBool("Idle", true);
     }
 
@@ -135,8 +118,6 @@ public class BattleSystem : MonoBehaviour
         playerAnimator.SetBool("Attack", false);
         if (enemyUnit.MagicPoints >= enemyUnit.MagicPointCost)
         {
-
-
             enemyUnit.ReducePoints(enemyUnit.MagicPointCost);
             dialogueText.text = enemyUnit.unitName + " attacks!";
 
@@ -146,7 +127,6 @@ public class BattleSystem : MonoBehaviour
 
             playerHUD.SetHP(playerUnit.currentHP);
             enemyHUD.SetMP(enemyUnit.MagicPoints);
-
 
             yield return new WaitForSeconds(1f);
 
@@ -161,9 +141,7 @@ public class BattleSystem : MonoBehaviour
                 PlayerTurn();
             }
         }
-
     }
-
 
     void EndBattle()
     {
@@ -179,46 +157,36 @@ public class BattleSystem : MonoBehaviour
             dialogueText.text = "You were defeated.";
         }
         playerAnimator.SetBool("Attack", false);
-
     }
 
     void PlayerTurn()
     {
+        EnableButtons();
 
         dialogueText.text = "Choose an action";
-
 
         playerAnimator.SetBool("Idle", true);
         playerAnimator.SetBool("Attack", false);
     }
 
-
     IEnumerator PlayerMagicAttack()
     {
-
-
-
-
+        DisableButtons();
         //// Cambiar al estado de reposo
         //playerAnimator.SetBool("Idle", true);
 
         // Check if the player has enough magic points to use the magic attack
         if (playerUnit.MagicPoints >= playerUnit.MagicPointCost)
         {
-
-
             // Deduct the magic point cost
             playerUnit.ReducePoints(playerUnit.MagicPointCost);
 
             // Perform the magic attack
             bool isDead = enemyUnit.TakeDamage(playerUnit.Magicdamage);
 
-
-
             enemyHUD.SetHP(enemyUnit.currentHP);
             playerHUD.SetMP(playerUnit.MagicPoints);
             dialogueText.text = "You attacked with a magic attack ";
-
 
             // Establecer animación de ataque
             playerAnimator.SetBool("Attack", true);
@@ -229,8 +197,6 @@ public class BattleSystem : MonoBehaviour
             // Reiniciar animaciones
             playerAnimator.SetBool("Idle", true);
             playerAnimator.SetBool("Attack", false);
-
-
 
             yield return new WaitForSeconds(2f);
 
@@ -260,10 +226,9 @@ public class BattleSystem : MonoBehaviour
         playerAnimator.SetBool("Idle", true);
     }
 
-
-
     IEnumerator PlayerHeal()
     {
+        DisableButtons();
         playerAnimator.SetBool("Attack", false);
         playerUnit.Heal(40);
 
@@ -281,16 +246,16 @@ public class BattleSystem : MonoBehaviour
     public void OnAttackButton()
     {
         playerAnimator.SetBool("Attack", true);
+        attacksCount++;
         if (state != BattleState.PLAYERTURN)
             return;
 
         StartCoroutine(PlayerAttack());
     }
 
-
     public void OnMagicAttackButton()
     {
-        playerAnimator.SetBool("Attack", true);
+        attacksCount = 0;
         if (state != BattleState.PLAYERTURN)
             return;
 
@@ -305,9 +270,24 @@ public class BattleSystem : MonoBehaviour
 
         StartCoroutine(PlayerHeal());
     }
+
     public int GetEnemiesDefeatedCount()
     {
         return enemiesDefeatedCount;
+    }
+
+    private void EnableButtons()
+    {
+        attackButton.interactable = true;
+        ultiButton.interactable = attacksCount > 2;
+        healButton.interactable = true;
+    }
+
+    private void DisableButtons()
+    {
+        attackButton.interactable = false;
+        ultiButton.interactable = false;
+        healButton.interactable = false;
     }
 
 }

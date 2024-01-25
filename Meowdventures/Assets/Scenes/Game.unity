@@ -2837,6 +2837,9 @@ MonoBehaviour:
   playerHUD: {fileID: 1123513501}
   enemyHUD: {fileID: 1317662789}
   state: 0
+  attackButton: {fileID: 550931384}
+  ultiButton: {fileID: 660073351}
+  healButton: {fileID: 1868987805}
 --- !u!4 &1198108011
 Transform:
   m_ObjectHideFlags: 0
