@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac4e85308dd5124cb41d89f3ace5918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Cat
+  unitName: JAsper
   unitLevel: 1
   damage: 15
   Magicdamage: 30

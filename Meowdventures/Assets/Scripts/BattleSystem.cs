@@ -43,7 +43,7 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(SetupBattle());
 
         // Encuentra el objeto del jugador y su Animator
-        GameObject playerObject = GameObject.FindWithTag("Player"); // Asume que el jugador tiene una etiqueta "Player"
+        GameObject playerObject = GameObject.FindWithTag("Player"); 
 
         if (playerObject != null)
         {
@@ -64,7 +64,7 @@ public class BattleSystem : MonoBehaviour
         GameObject EnemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = EnemyGO.GetComponent<Unit>();
 
-        dialogueText.text = "Defeat " + enemyUnit.unitName;
+        dialogueText.text = "DefeAt " + enemyUnit.unitName;
         
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
@@ -81,7 +81,7 @@ public class BattleSystem : MonoBehaviour
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
         enemyHUD.SetHP(enemyUnit.currentHP);
-        dialogueText.text = "You attacked with a normal attack ";
+        dialogueText.text = "You AttAcked with A normAl AttAsck ";
 
         // Establecer animación de ataque
         playerAnimator.SetBool("Attack", true);
@@ -105,7 +105,7 @@ public class BattleSystem : MonoBehaviour
         {
             state = BattleState.ENEMYTURN;
             enemyHUD.SetHP(enemyUnit.currentHP);
-            dialogueText.text = "You deal " + playerUnit.damage + " damage...";
+            dialogueText.text = "You deAl " + playerUnit.damage + " dAmAge...";
 
             yield return new WaitForSeconds(2f);
             StartCoroutine(EnemyTurn());
@@ -119,7 +119,7 @@ public class BattleSystem : MonoBehaviour
         if (enemyUnit.MagicPoints >= enemyUnit.MagicPointCost)
         {
             enemyUnit.ReducePoints(enemyUnit.MagicPointCost);
-            dialogueText.text = enemyUnit.unitName + " attacks!";
+            dialogueText.text = enemyUnit.unitName + " AttAcks!";
 
             yield return new WaitForSeconds(1f);
 
@@ -154,16 +154,16 @@ public class BattleSystem : MonoBehaviour
         }
         else if (state == BattleState.LOST)
         {
-            dialogueText.text = "You were defeated.";
+            dialogueText.text = "You were defeAted.";
         }
-        playerAnimator.SetBool("Attack", false);
+        playerAnimator.SetBool("AttAck", false);
     }
 
     void PlayerTurn()
     {
         EnableButtons();
 
-        dialogueText.text = "Choose an action";
+        dialogueText.text = "Choose An Action";
 
         playerAnimator.SetBool("Idle", true);
         playerAnimator.SetBool("Attack", false);
@@ -186,7 +186,7 @@ public class BattleSystem : MonoBehaviour
 
             enemyHUD.SetHP(enemyUnit.currentHP);
             playerHUD.SetMP(playerUnit.MagicPoints);
-            dialogueText.text = "You attacked with a magic attack ";
+            dialogueText.text = "You AttAcked with A mAgic AttAck ";
 
             // Establecer animación de ataque
             playerAnimator.SetBool("Attack", true);
@@ -210,7 +210,7 @@ public class BattleSystem : MonoBehaviour
             {
                 state = BattleState.ENEMYTURN;
                 enemyHUD.SetHP(enemyUnit.currentHP);
-                dialogueText.text = "You deal " + playerUnit.damage + " of Magic damage...";
+                dialogueText.text = "You deAl " + playerUnit.Magicdamage + " of MAgic dAmAge...";
 
                 yield return new WaitForSeconds(2f);
                 StartCoroutine(EnemyTurn());
@@ -218,7 +218,7 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
-            dialogueText.text = "You don't have enough magic points!";
+            dialogueText.text = "You don't hAve enough mAgic points!";
             // Handle the case where the player doesn't have enough magic points to perform the magic attack
             // You can display a message or take appropriate actions here.
         }
