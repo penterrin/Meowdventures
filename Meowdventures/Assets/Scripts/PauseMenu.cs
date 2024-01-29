@@ -24,6 +24,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            FindObjectOfType<AudioManager>().Play("Click");
             if (GameIsPaused)
             {
                 Resume();
@@ -40,6 +41,9 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+       
+
+
     }
     void Pause()
     {
@@ -56,10 +60,20 @@ public class PauseMenu : MonoBehaviour
 
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1f;
+        FindObjectOfType<AudioManager>().StopPlaying("Theme");
+        FindObjectOfType<AudioManager>().StopPlaying("Level2");        
+        FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+        FindObjectOfType<AudioManager>().Play("Click");
+        FindObjectOfType<AudioManager>().Play("Menu");
     }
 
     public void QuitGame()
     {
+        FindObjectOfType<AudioManager>().StopPlaying("Theme");
+        FindObjectOfType<AudioManager>().StopPlaying("Level2");
+        FindObjectOfType<AudioManager>().StopPlaying("Menu");
+        FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+        FindObjectOfType<AudioManager>().Play("Click");
         Debug.Log("quitting game");
         Application.Quit();
     }

@@ -99,6 +99,19 @@ public class PlayerMovement : MonoBehaviour {
         UpdateTimerUI();
     }
 
+    private void Start()
+    {
+        // Comprobar si la escena actual es el nivel 2
+        if (SceneManager.GetActiveScene().name == "Level2")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().Play("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+
+        }
+    }
+
     void UpdateTimerUI()
     {
         if (timerText != null)
@@ -146,7 +159,13 @@ public class PlayerMovement : MonoBehaviour {
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             FindObjectOfType<AudioManager>().StopPlaying("Theme");
-            FindObjectOfType<AudioManager>().Play("CombatMusic");
+
+
+            //FindObjectOfType<AudioManager>().Play("Level2");
+
+
+           
+
         }
         //if (other.gameObject.CompareTag("Barrier"))
         //{

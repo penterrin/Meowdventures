@@ -45,6 +45,7 @@ public class SettingsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        FindObjectOfType<AudioManager>().Play("Click");
     }
     public void SetVolume(float volume)
     {
@@ -54,11 +55,14 @@ public class SettingsMenu : MonoBehaviour
     public void SetQuality (int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        FindObjectOfType<AudioManager>().Play("Click");
     }
 
     public void SetFullscreen (bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+        FindObjectOfType<AudioManager>().Play("Click");
+
     }
 
 }
