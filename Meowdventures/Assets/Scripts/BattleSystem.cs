@@ -249,6 +249,7 @@ public class BattleSystem : MonoBehaviour
         attacksCount++;
         if (state != BattleState.PLAYERTURN)
             return;
+        FindObjectOfType<AudioManager>().Play("Click");
 
         StartCoroutine(PlayerAttack());
     }
@@ -258,6 +259,7 @@ public class BattleSystem : MonoBehaviour
         attacksCount = 0;
         if (state != BattleState.PLAYERTURN)
             return;
+        FindObjectOfType<AudioManager>().Play("Click");
 
         StartCoroutine(PlayerMagicAttack());
     }
@@ -267,6 +269,8 @@ public class BattleSystem : MonoBehaviour
         playerAnimator.SetBool("Attack", false);
         if (state != BattleState.PLAYERTURN)
             return;
+
+        FindObjectOfType<AudioManager>().Play("Click");
 
         StartCoroutine(PlayerHeal());
     }
