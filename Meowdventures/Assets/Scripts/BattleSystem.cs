@@ -81,7 +81,7 @@ public class BattleSystem : MonoBehaviour
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
         enemyHUD.SetHP(enemyUnit.currentHP);
-        dialogueText.text = "You AttAcked with A normAl AttAsck ";
+        dialogueText.text = "You AttAcked with A normAl AttAck ";
 
         // Establecer animación de ataque
         playerAnimator.SetBool("Attack", true);
@@ -144,19 +144,19 @@ public class BattleSystem : MonoBehaviour
     }
 
     void EndBattle()
-    {
+    {        
         if (state == BattleState.WON)
         {
             dialogueText.text = "You won!";
             enemiesDefeatedCount++;
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);            
             SceneManager.LoadScene("Main");
         }
         else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were defeAted.";
         }
-        playerAnimator.SetBool("AttAck", false);
+        //playerAnimator.SetBool("AttAck", false);
     }
 
     void PlayerTurn()
@@ -204,6 +204,7 @@ public class BattleSystem : MonoBehaviour
             {
                 state = BattleState.WON;
                 enemyHUD.SetHP(enemyUnit.currentHP = 0);
+                StopAllCoroutines();
                 EndBattle();
             }
             else
@@ -230,7 +231,7 @@ public class BattleSystem : MonoBehaviour
     {
         DisableButtons();
         playerAnimator.SetBool("Attack", false);
-        playerUnit.Heal(40);
+        playerUnit.Heal(60);
 
         playerHUD.SetHP(playerUnit.currentHP);
         dialogueText.text = "You feel renewed strength!";
