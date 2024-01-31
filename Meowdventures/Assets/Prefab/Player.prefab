@@ -153,14 +153,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: JAsper
-  unitLevel: 1
-  damage: 15
-  Magicdamage: 30
+  damage: 20
+  Magicdamage: 50
   MagicPoints: 250
   MaxMagicPoints: 250
   MagicPointCost: 30
-  maxHP: 200
-  currentHP: 200
+  maxHP: 300
+  currentHP: 300
 --- !u!212 &8595616397914557420
 SpriteRenderer:
   m_ObjectHideFlags: 0

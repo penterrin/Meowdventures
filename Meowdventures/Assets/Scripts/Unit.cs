@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-
     public string unitName;
-    public string unitLevel;
 
     public int damage;
     public int Magicdamage;
