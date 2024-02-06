@@ -1570,7 +1570,6 @@ MonoBehaviour:
     m_Bits: 567
   m_GroundCheck: {fileID: 1007352555}
   m_CeilingCheck: {fileID: 1574803884}
-  m_CrouchDisableCollider: {fileID: 820667356}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -3832,11 +3831,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1988677040049817154, guid: ccd1bbac693342c4a8b43d9d57dad83c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.43
+      value: 60.64
       objectReference: {fileID: 0}
     - target: {fileID: 1988677040049817154, guid: ccd1bbac693342c4a8b43d9d57dad83c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.63
+      value: -2.96
       objectReference: {fileID: 0}
     - target: {fileID: 1988677040049817154, guid: ccd1bbac693342c4a8b43d9d57dad83c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3874,6 +3873,10 @@ PrefabInstance:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 917285004}
+    - target: {fileID: 6127502783817364838, guid: ccd1bbac693342c4a8b43d9d57dad83c, type: 3}
+      propertyPath: playerMovementScript
+      value: 
+      objectReference: {fileID: 820667357}
     - target: {fileID: 8273860507769019770, guid: ccd1bbac693342c4a8b43d9d57dad83c, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -4488,8 +4491,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794778990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 72.53, y: -23.71, z: 0}
-  m_LocalScale: {x: 1.089, y: 17.348282, z: 1}
+  m_LocalPosition: {x: 26.43, y: 7.76, z: 0}
+  m_LocalScale: {x: 0.6503529, y: 11.77107, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4505,7 +4508,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -14565,6 +14568,26 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 25, y: 2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 17
+      m_TileSpriteIndex: 17
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 26, y: 2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 17
+      m_TileSpriteIndex: 17
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 27, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -15076,26 +15099,6 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 21, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 17
-      m_TileSpriteIndex: 17
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 25, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 17
-      m_TileSpriteIndex: 17
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 26, y: 3, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 17
@@ -21817,13 +21820,13 @@ CompositeCollider2D:
       - X: 267250000
         Y: 138650000
       - X: 267250000
-        Y: 39650000
+        Y: 29750000
       - X: 247450016
-        Y: 39650000
+        Y: 29750000
       - X: 247450016
-        Y: 29650000
+        Y: 19750000
       - X: 267250000
-        Y: 29650000
+        Y: 19750000
       - X: 267250000
         Y: -50000
       - X: 356450016
@@ -22488,10 +22491,10 @@ CompositeCollider2D:
       - {x: 33.655, y: 14.854971}
       - {x: 33.65497, y: 13.865}
       - {x: 26.725, y: 13.864971}
-      - {x: 26.724972, y: 3.9650002}
-      - {x: 24.745003, y: 3.9649708}
-      - {x: 24.745031, y: 2.9650002}
-      - {x: 26.725, y: 2.9649706}
+      - {x: 26.724972, y: 2.9750001}
+      - {x: 24.745003, y: 2.9749708}
+      - {x: 24.745031, y: 1.975}
+      - {x: 26.725, y: 1.9749706}
       - {x: 26.725029, y: -0.005}
       - {x: 35.645, y: -0.0049707}
       - {x: 35.64503, y: 1.975}
