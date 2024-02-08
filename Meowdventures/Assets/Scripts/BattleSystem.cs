@@ -3,7 +3,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
 public class BattleSystem : MonoBehaviour
@@ -35,6 +34,8 @@ public class BattleSystem : MonoBehaviour
     public UnityEngine.UI.Button attackButton;
     public UnityEngine.UI.Button ultiButton;
     public UnityEngine.UI.Button healButton;
+
+    public GameObject GameOverScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -155,6 +156,7 @@ public class BattleSystem : MonoBehaviour
         else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were defeAted.";
+            GameOverScreen.SetActive(true);
         }
         //playerAnimator.SetBool("AttAck", false);
     }
@@ -293,6 +295,21 @@ public class BattleSystem : MonoBehaviour
         attackButton.interactable = false;
         ultiButton.interactable = false;
         healButton.interactable = false;
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GotoMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
 }
