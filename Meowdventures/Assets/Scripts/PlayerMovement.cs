@@ -174,6 +174,7 @@ public class PlayerMovement : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             FindObjectOfType<AudioManager>().StopPlaying("Theme");
            
+           
 
 
             //FindObjectOfType<AudioManager>().Play("Level2");
