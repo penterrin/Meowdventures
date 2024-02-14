@@ -8,6 +8,7 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 public class BattleSystem : MonoBehaviour
 {
     public Animator playerAnimator;
+    public Animator mageAnimator;
 
     //private Animator playerAnimator; // Animator del jugador
     //public Animator animator;
@@ -44,7 +45,7 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(SetupBattle());
 
         // Encuentra el objeto del jugador y su Animator
-        GameObject playerObject = GameObject.FindWithTag("Player"); 
+        GameObject playerObject = GameObject.FindWithTag("Player");
 
         if (playerObject != null)
         {
@@ -53,6 +54,17 @@ public class BattleSystem : MonoBehaviour
         else
         {
             Debug.LogError("No se pudo encontrar el objeto del jugador.");
+        }
+
+        GameObject mageObject = GameObject.FindWithTag("Enemys");
+
+        if (mageObject != null)
+        {
+            mageAnimator = mageObject.GetComponent<Animator>();
+        }
+        else
+        {
+            Debug.LogError("No se pudo encontrar el objeto del enemigo.");
         }
     }   
 
@@ -110,26 +122,32 @@ public class BattleSystem : MonoBehaviour
 
             yield return new WaitForSeconds(2f);
             StartCoroutine(EnemyTurn());
-        }
-        playerAnimator.SetBool("Idle", true);
+        }        
     }
 
     IEnumerator EnemyTurn()
     {
+        playerAnimator.SetBool("Idle", false);
         playerAnimator.SetBool("Attack", false);
+        
         if (enemyUnit.MagicPoints >= enemyUnit.MagicPointCost)
         {
             enemyUnit.ReducePoints(enemyUnit.MagicPointCost);
             dialogueText.text = enemyUnit.unitName + " AttAcks!";
-
+            mageAnimator.SetBool("Idle", false);
+            mageAnimator.SetBool("Attack", true);
+            playerAnimator.SetBool("Damaged", true);
             yield return new WaitForSeconds(1f);
 
             bool isDead = playerUnit.TakeDamage(enemyUnit.Magicdamage);
 
             playerHUD.SetHP(playerUnit.currentHP);
-            enemyHUD.SetMP(enemyUnit.MagicPoints);
+            enemyHUD.SetMP(enemyUnit.MagicPoints);            
 
             yield return new WaitForSeconds(1f);
+            
+            mageAnimator.SetBool("Idle", true);
+            mageAnimator.SetBool("Attack", false);
 
             if (isDead)
             {
@@ -169,6 +187,7 @@ public class BattleSystem : MonoBehaviour
 
         playerAnimator.SetBool("Idle", true);
         playerAnimator.SetBool("Attack", false);
+        playerAnimator.SetBool("Damaged", false);
     }
 
     IEnumerator PlayerMagicAttack()
