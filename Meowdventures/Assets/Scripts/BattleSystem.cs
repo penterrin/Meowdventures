@@ -99,12 +99,14 @@ public class BattleSystem : MonoBehaviour
         // Establecer animación de ataque
         playerAnimator.SetBool("Attack", true);
         playerAnimator.SetBool("Idle", false);
+        playerAnimator.SetBool("MagicAttack", false);
 
         yield return new WaitForSeconds(0.5f);
 
         // Reiniciar animaciones
         playerAnimator.SetBool("Idle", true);
         playerAnimator.SetBool("Attack", false);
+        playerAnimator.SetBool("MagicAttack", false);
 
         yield return new WaitForSeconds(2f);
 
@@ -149,6 +151,7 @@ public class BattleSystem : MonoBehaviour
             mageAnimator.SetBool("Idle", true);
             mageAnimator.SetBool("Attack", false);
 
+
             if (isDead)
             {
                 state = BattleState.LOST;
@@ -188,6 +191,7 @@ public class BattleSystem : MonoBehaviour
         playerAnimator.SetBool("Idle", true);
         playerAnimator.SetBool("Attack", false);
         playerAnimator.SetBool("Damaged", false);
+        playerAnimator.SetBool("MagicAttack", false);
     }
 
     IEnumerator PlayerMagicAttack()
@@ -210,7 +214,8 @@ public class BattleSystem : MonoBehaviour
             dialogueText.text = "You AttAcked with A mAgic AttAck ";
 
             // Establecer animación de ataque
-            playerAnimator.SetBool("Attack", true);
+            playerAnimator.SetBool("Attack", false);
+            playerAnimator.SetBool("MagicAttack", true);
             playerAnimator.SetBool("Idle", false);
 
             yield return new WaitForSeconds(0.5f);
@@ -218,6 +223,7 @@ public class BattleSystem : MonoBehaviour
             // Reiniciar animaciones
             playerAnimator.SetBool("Idle", true);
             playerAnimator.SetBool("Attack", false);
+            playerAnimator.SetBool("MagicAttack", false);
 
             yield return new WaitForSeconds(2f);
 
@@ -278,6 +284,7 @@ public class BattleSystem : MonoBehaviour
 
     public void OnMagicAttackButton()
     {
+        playerAnimator.SetBool("MagicAttack", true);
         attacksCount = 0;
         if (state != BattleState.PLAYERTURN)
             return;
