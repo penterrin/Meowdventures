@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+
 public class PlayerMovement : MonoBehaviour {
     //public GameObject Barrera;
 
@@ -31,12 +32,13 @@ public class PlayerMovement : MonoBehaviour {
 	bool crouch = false;
 
     bool isTouchingEnemy = false;
-    
+
+    bool isTouchingInteractable = false;    
 
     bool isTouchingWall = false;
     bool canWallJump = true;  // Variable para gestionar el cooldown del Wall Jump
 
-
+    public Interactable focus;
 
 
     //void Start()
@@ -97,8 +99,29 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         UpdateTimerUI();
-    }
 
+
+    //    if(Input.GetKeyDown(KeyCode.F))
+    //    {
+            
+    //      if (isTouchingInteractable )
+    //      {
+    //            Interactable interactable = hit.collider.GetComponent<Interactable>();
+    //      }
+
+    //      if (Interactable != null) 
+    //      {
+    //            SetFocus(Interactable);
+    //      }
+            
+            
+    //    }
+    //}
+    //void SetFocus(Interactable newFocus)
+    //{
+        
+
+    }
     private void Start()
     {
         // Comprobar si la escena actual es el nivel 2
@@ -168,6 +191,10 @@ public class PlayerMovement : MonoBehaviour {
             //FindObjectOfType<AudioManager>().StopPlaying("Theme");
             //FindObjectOfType<AudioManager>().Play("CombatMusic");
         }
+        if (other.gameObject.CompareTag("Interactable"))
+        {
+            isTouchingInteractable = true;
+        }
         if (other.gameObject.CompareTag("Portal"))
         {
 
@@ -207,6 +234,10 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Wall"))
         {
             isTouchingWall = false;
+        }
+        if (other.gameObject.CompareTag("Interactable"))
+        {
+            isTouchingInteractable = false;
         }
     }
 

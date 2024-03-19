@@ -9,6 +9,8 @@ TagManager:
   - Button
   - Portal
   - Wall
+  - MovingPlatform
+  - Interactable
   layers:
   - Default
   - TransparentFX
