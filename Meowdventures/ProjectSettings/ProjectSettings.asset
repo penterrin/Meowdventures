@@ -776,11 +776,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: abbbb25e-b9bf-43a4-8bb1-25cf5eca09e3
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Meowdventures
+  organizationId: penterrin
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
