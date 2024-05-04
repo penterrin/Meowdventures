@@ -120,6 +120,12 @@ public class PlayerMovement : MonoBehaviour {
     //}
     //void SetFocus(Interactable newFocus)
     //{
+
+        if (DialogueManager.Instance.isDialogueActive)
+        {
+            horizontalMove = 0f; 
+            return;
+        }
         
 
     }
