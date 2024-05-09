@@ -108,6 +108,16 @@ public class BattleSystem : MonoBehaviour
         playerAnimator.SetBool("Attack", false);
         playerAnimator.SetBool("MagicAttack", false);
 
+        mageAnimator.SetBool("Idle", false);
+        mageAnimator.SetBool("Attack", false);
+        mageAnimator.SetBool("Hurt", true);
+
+        yield return new WaitForSeconds(1.0f);
+
+        mageAnimator.SetBool("Idle", true);
+        mageAnimator.SetBool("Attack", false);
+        mageAnimator.SetBool("Hurt", false);
+
         yield return new WaitForSeconds(2f);
 
         if (isDead)
