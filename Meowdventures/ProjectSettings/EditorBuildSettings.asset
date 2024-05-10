@@ -39,6 +39,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits.unity
     guid: 03ff641fa3932fa4bb07ee0da0b0aa14
   - enabled: 1
-    path: Assets/Scenes/BattleMage.unity
+    path: Assets/Scenes/Game.unity
     guid: c7c02c7943ffa1f429604e7bb4794ee8
   m_configObjects: {}
