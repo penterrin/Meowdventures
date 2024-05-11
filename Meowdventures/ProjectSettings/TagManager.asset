@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - MovingPlatform
   - Interactable
+  - Savepoint
   layers:
   - Default
   - TransparentFX

@@ -26,10 +26,19 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        SavePlayer();
+
+        
+        //SavePlayer();
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Savepoint"))
+        {
+            SavePlayer();
+        }
     }
 
-    private void SavePlayer()
+        private void SavePlayer()
     {
         SaveSystem.SavePlayer(this);
     }
