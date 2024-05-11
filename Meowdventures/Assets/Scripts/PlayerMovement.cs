@@ -94,6 +94,7 @@ public class PlayerMovement : MonoBehaviour {
             SceneManager.LoadScene(battleScene);
             FindObjectOfType<AudioManager>().StopPlaying("Theme");
             FindObjectOfType<AudioManager>().Play("CombatMusic");
+            
         }
 
         UpdateTimerUI();
@@ -196,11 +197,13 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Enemys")&& other.TryGetComponent(out BattleScene battleScene))
 		{
             isTouchingEnemy = true;
+            Debug.Log("Tocando");
             this.battleScene = battleScene.GetSceneName();
            
             //SceneManager.LoadScene(2);
             //FindObjectOfType<AudioManager>().StopPlaying("Theme");
             //FindObjectOfType<AudioManager>().Play("CombatMusic");
+
         }
         if (other.gameObject.CompareTag("Interactable"))
         {
