@@ -5,8 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData 
 {
-   
-   public float[] position;
+    public int enemiesDefeated = 0;
+    public float[] position;
 
     public PlayerData (Player player)
     {
@@ -14,5 +14,6 @@ public class PlayerData
        position[0] = player.transform.position.x;
        position[1] = player.transform.position.y;
        position[2] = player.transform.position.z;
+       enemiesDefeated = player.GetEnemies();
     }
 }

@@ -41,4 +41,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: c7c02c7943ffa1f429604e7bb4794ee8
+  - enabled: 1
+    path: Assets/Scenes/BattleMusketeer.unity
+    guid: 67d165209bf93ad4996f961e0e45a225
+  - enabled: 1
+    path: Assets/Scenes/BattleMusketeerBald.unity
+    guid: 836b83a45aacef14c9470d54660328e5
+  - enabled: 1
+    path: Assets/Scenes/BattleYellow.unity
+    guid: ce9d62f3fb80ab04da6b7e01c6739576
+  - enabled: 1
+    path: Assets/Scenes/EmeraldBattle 1.unity
+    guid: 9721faafa4c4fa6408d7bce9e846074a
+  - enabled: 1
+    path: Assets/Scenes/BattleRuby.unity
+    guid: 7b719f594cd2aae4bb7a130158385766
   m_configObjects: {}

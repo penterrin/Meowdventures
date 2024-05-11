@@ -1,14 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    private int enemiesDefeated = 0;
+
+    public void DefeatEnemy()
+    {
+        enemiesDefeated++;
+    }
+
+    public int GetEnemies()
+    {
+        return enemiesDefeated;
+    }
+
     private void Start()
     {
         // Llama a LoadPlayer cuando inicia la escena
-        LoadPlayer();
+        //LoadPlayer();
 
         //// Llama a SavePlayer cada segundo después de un segundo de la inicialización
         //InvokeRepeating("SavePlayer", 1f, 1f);
@@ -23,7 +34,7 @@ public class Player : MonoBehaviour
         SaveSystem.SavePlayer(this);
     }
 
-    private void LoadPlayer()
+    public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
 
@@ -31,6 +42,7 @@ public class Player : MonoBehaviour
         {
             Vector3 position = new Vector3(data.position[0], data.position[1], data.position[2]);
             transform.position = position;
+            enemiesDefeated = data.enemiesDefeated;
         }
     }
 }

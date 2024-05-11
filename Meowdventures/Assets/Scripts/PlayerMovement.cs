@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour {
     public bool timerEnabled = false;
     public TextMeshProUGUI timerText;
 
+    private string battleScene;
+    public Player player;
+    [SerializeField] private List<GameObject> enemiesList;
 
     float horizontalMove = 0f;
 	bool jump = false;
@@ -39,12 +42,6 @@ public class PlayerMovement : MonoBehaviour {
     bool canWallJump = true;  // Variable para gestionar el cooldown del Wall Jump
 
     public Interactable focus;
-
-
-    //void Start()
-    //{
-    //    timer = 0f; // Inicializamos el temporizador
-    //}
 
     // Update is called once per frame
     void Update () {
@@ -93,7 +90,8 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E) && isTouchingEnemy)
         {
             // Inicia el combate por turnos
-            SceneManager.LoadScene("Game");
+            player.DefeatEnemy();
+            SceneManager.LoadScene(battleScene);
             FindObjectOfType<AudioManager>().StopPlaying("Theme");
             FindObjectOfType<AudioManager>().Play("CombatMusic");
         }
@@ -131,10 +129,10 @@ public class PlayerMovement : MonoBehaviour {
     }
     private void Start()
     {
+        player.LoadPlayer();
         // Comprobar si la escena actual es el nivel 2
         if (SceneManager.GetActiveScene().name == "Level2")
-        {
-           
+        {           
             // Iniciar la música del nivel 2
             FindObjectOfType<AudioManager>().Play("Level2");
             FindObjectOfType<AudioManager>().StopPlaying("Theme");
@@ -152,6 +150,11 @@ public class PlayerMovement : MonoBehaviour {
             FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
             Debug.Log("Sonando");
 
+        }
+
+        for (int i = 0; i < player.GetEnemies(); i++)
+        {
+            Destroy(enemiesList[i]);
         }
 
     }
@@ -190,9 +193,10 @@ public class PlayerMovement : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemys"))
+        if (other.gameObject.CompareTag("Enemys")&& other.TryGetComponent(out BattleScene battleScene))
 		{
             isTouchingEnemy = true;
+            this.battleScene = battleScene.GetSceneName();
            
             //SceneManager.LoadScene(2);
             //FindObjectOfType<AudioManager>().StopPlaying("Theme");
