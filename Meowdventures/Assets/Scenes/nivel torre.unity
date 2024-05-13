@@ -2010,7 +2010,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402518448}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -8414,8 +8414,9 @@ GameObject:
   - component: {fileID: 1428056375}
   - component: {fileID: 1428056377}
   - component: {fileID: 1428056378}
+  - component: {fileID: 1428056379}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Button
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8517,6 +8518,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Barrera: {fileID: 1876654714}
+--- !u!95 &1428056379
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428056374}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 630740425f8f89141acd38c093a4a639, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1474929278
 GameObject:
   m_ObjectHideFlags: 0
@@ -28784,6 +28806,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1244853831}
     m_Modifications:
+    - target: {fileID: 2264889993335471351, guid: c36faa35f53e92b4f931f1efdd358747, type: 3}
+      propertyPath: typingSpeed
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 3102559844188689544, guid: c36faa35f53e92b4f931f1efdd358747, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
