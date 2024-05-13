@@ -950,7 +950,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    dialogueLines: []
+    dialogueLines:
+    - character:
+        name: Blue Mage
+        icon: {fileID: 21300000, guid: 4b2f2006b5b91054fb7fdf948254d612, type: 3}
+      line: "zzz\u2026 this is\u2026 the source of my power\u2026 thank you for helping
+        me break the enchantment\u2026 use this to fight Ruby and save us all"
+    - character:
+        name: Jasper
+        icon: {fileID: 21300000, guid: 90f410a82f133f04da2e082a293ba949, type: 3}
+      line: "I\u2019m glad that I could help you out, thank you so much for the gem."
+    - character:
+        name: Blue Mage
+        icon: {fileID: 21300000, guid: 4b2f2006b5b91054fb7fdf948254d612, type: 3}
+      line: "wait\u2026 you have to get the 5 of them to have more power\u2026 search
+        for the other four and fight them\u2026 "
+    - character:
+        name: Jasper
+        icon: {fileID: 21300000, guid: 90f410a82f133f04da2e082a293ba949, type: 3}
+      line: "Thanks for the info! I\u2019ll get going!"
 --- !u!61 &47178622
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31230,7 +31248,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    dialogueLines: []
+    dialogueLines:
+    - character:
+        name: Jasper
+        icon: {fileID: 21300000, guid: 90f410a82f133f04da2e082a293ba949, type: 3}
+      line: Yay! three gems more to go
+    - character:
+        name: Yellow Mage
+        icon: {fileID: 21300000, guid: 704d2c320dd2f114ab3bc538f75a0389, type: 3}
+      line: "thank you hero\u2026 I don\u2019t know what happened to me, I could
+        not think straight."
+    - character:
+        name: Jasper
+        icon: {fileID: 21300000, guid: 90f410a82f133f04da2e082a293ba949, type: 3}
+      line: "Don\u2019t worry, you weren\u2019t you, you were controlled by that
+        Ruby. Leave it to me! I\u2019ll save you all and the kingdom will be peaceful
+        and happy again."
 --- !u!61 &1787999697
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31317,7 +31350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787999695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 218.78, y: 9.37, z: 0}
+  m_LocalPosition: {x: 219.49, y: 9.3, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
