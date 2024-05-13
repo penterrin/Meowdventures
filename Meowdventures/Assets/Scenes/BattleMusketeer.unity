@@ -2478,8 +2478,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.065, y: -32.8}
-  m_SizeDelta: {x: 48.13, y: 16.32}
+  m_AnchoredPosition: {x: -8.62, y: -32.8}
+  m_SizeDelta: {x: 79.01, y: 16.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853593034
 MonoBehaviour:
@@ -2528,7 +2528,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13.1
+  m_fontSize: 14.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2697,7 +2697,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1542526163}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &981668535
 GameObject:
@@ -2807,7 +2807,7 @@ RectTransform:
   m_Children:
   - {fileID: 576845538}
   m_Father: {fileID: 1542526163}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3140,7 +3140,7 @@ RectTransform:
   - {fileID: 470080022}
   - {fileID: 398419903}
   m_Father: {fileID: 1542526163}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3212,7 +3212,7 @@ GameObject:
   - component: {fileID: 1191641751}
   - component: {fileID: 1191641750}
   m_Layer: 5
-  m_Name: ' CARA EMERALD'
+  m_Name: ' CARA MOSQUETERA'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3231,12 +3231,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1542526163}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 214.4, y: 157.9}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 213.8, y: 156.61}
+  m_SizeDelta: {x: 135.05, y: 135.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1191641750
 MonoBehaviour:
@@ -3258,7 +3258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 443a3a6ebe551304eaee5a6e3dd7071a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c45cf4389bbe6664facb9e36bf9d236a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3308,7 +3308,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 0}
   mageAnimator: {fileID: 0}
   playerPrefab: {fileID: 7559389270703321195, guid: 223979a99c294964ea1e0a99b72f9efb, type: 3}
-  enemyPrefab: {fileID: 1973086199315644312, guid: dc9e0419d2487af48946efb9a8762b60, type: 3}
+  enemyPrefab: {fileID: 1973086199315644312, guid: aadfb65b2ca3038458ad16342a80303f, type: 3}
   playerBattleStation: {fileID: 1024100101}
   enemyBattleStation: {fileID: 1562923283}
   dialogueText: {fileID: 576845539}
@@ -3370,7 +3370,7 @@ RectTransform:
   - {fileID: 2120114475}
   - {fileID: 757043048}
   m_Father: {fileID: 1542526163}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3699,11 +3699,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 988953324}
   - {fileID: 945699750}
   - {fileID: 1317662786}
   - {fileID: 1191641749}
   - {fileID: 1123513498}
-  - {fileID: 988953324}
   - {fileID: 747652131}
   - {fileID: 895686425}
   m_Father: {fileID: 0}
@@ -3791,7 +3791,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562923281}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.7, y: -2.58, z: 94}
+  m_LocalPosition: {x: 4.99, y: -2.53, z: 94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

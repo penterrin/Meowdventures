@@ -98,11 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Ruby
-  unitLevel: 
   damage: 50
   Magicdamage: 100
-  MagicPoints: 10000
-  MaxMagicPoints: 10000
+  MagicPoints: 400
+  MaxMagicPoints: 500
   MagicPointCost: 20
   maxHP: 300
   currentHP: 300
