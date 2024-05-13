@@ -136,6 +136,7 @@ public class PlayerMovement : MonoBehaviour {
         {           
             // Iniciar la música del nivel 2
             FindObjectOfType<AudioManager>().Play("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
             FindObjectOfType<AudioManager>().StopPlaying("Theme");
             FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
             Debug.Log("Sonando");
@@ -148,10 +149,130 @@ public class PlayerMovement : MonoBehaviour {
             // Iniciar la música del nivel 2
             FindObjectOfType<AudioManager>().Play("Theme");
             FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
             FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+            Debug.Log("Sonando");
+            
+
+        }
+
+        if (SceneManager.GetActiveScene().name == "BattleMusketeer")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
             Debug.Log("Sonando");
 
         }
+        if (SceneManager.GetActiveScene().name == "BattleMusketeerBald")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "BattleRuby")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "BattleYellow")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "EmeraldBattle1")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "Niveltorre")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+            FindObjectOfType<AudioManager>().Play("Level3");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "Dialogues")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("Level2");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "Dialogues1")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("Level2");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "Dialogues2")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("Level2");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "Dialogues3")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("Level2");
+            Debug.Log("Sonando");
+
+        } 
+        if (SceneManager.GetActiveScene().name == "Dialogues4")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("Level2");
+            Debug.Log("Sonando");
+
+        }
+
+
 
         for (int i = 0; i < player.GetEnemies(); i++)
         {

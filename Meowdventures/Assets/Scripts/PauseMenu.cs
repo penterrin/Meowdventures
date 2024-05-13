@@ -78,7 +78,7 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
-    private void RespawnPlayer()
+    public void RespawnPlayer()
     {
         // Busca el objeto del jugador en la escena actual
         Player player = FindObjectOfType<Player>();
