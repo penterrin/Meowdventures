@@ -177,13 +177,74 @@ public class BattleSystem : MonoBehaviour
 
     void EndBattle()
     {        
-        if (state == BattleState.WON)
+        if (state == BattleState.WON && SceneManager.GetActiveScene().name == "BattleMusketeer")
         {
             dialogueText.text = "You won!";
             enemiesDefeatedCount++;
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);            
-            SceneManager.LoadScene("Main");
+
+
+            SceneManager.LoadScene("Nivel torre");
+
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
         }
+        if (state == BattleState.WON && SceneManager.GetActiveScene().name == "BattleMusketeerBald")
+        {
+            dialogueText.text = "You won!";
+            enemiesDefeatedCount++;
+
+
+            SceneManager.LoadScene("Nivel torre");
+
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        }
+        if (state == BattleState.WON && SceneManager.GetActiveScene().name == "BattleRuby")
+        {
+            dialogueText.text = "You won!";
+            enemiesDefeatedCount++;
+
+
+            SceneManager.LoadScene("Cinematics 1");
+
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        }
+        if (state == BattleState.WON && SceneManager.GetActiveScene().name == "BattleYellow")
+        {
+            dialogueText.text = "You won!";
+            enemiesDefeatedCount++;
+
+
+            SceneManager.LoadScene("Main");
+
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        }
+
+        if (state == BattleState.WON && SceneManager.GetActiveScene().name == "EmeraldBattle1")
+        {
+            dialogueText.text = "You won!";
+            enemiesDefeatedCount++;
+
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        }
+        if (state == BattleState.WON && SceneManager.GetActiveScene().name == "Game")
+        {
+            dialogueText.text = "You won!";
+            enemiesDefeatedCount++;
+
+
+            SceneManager.LoadScene("Main");
+
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        }
+
         else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were defeAted.";

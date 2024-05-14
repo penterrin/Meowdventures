@@ -2718,7 +2718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10dec410725afb4c8bfee0379f7e6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementScript: {fileID: 820667357}
+  playerMovementScript: {fileID: 0}
   backgroundObjects: []
   respawnPoint: {fileID: 917285004}
 --- !u!61 &525158476
@@ -3176,7 +3176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10dec410725afb4c8bfee0379f7e6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementScript: {fileID: 820667357}
+  playerMovementScript: {fileID: 0}
   backgroundObjects: []
   respawnPoint: {fileID: 917285004}
 --- !u!61 &570337064
@@ -3994,7 +3994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8fd078391c90949a1ee0364c93392a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: BattleBaldMusketeer
+  sceneName: BattleMusketeerBald
 --- !u!1001 &753858832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4592,8 +4592,10 @@ MonoBehaviour:
   timerText: {fileID: 402518450}
   player: {fileID: 820667359}
   enemiesList:
-  - {fileID: 172961375}
-  - {fileID: 738740354}
+  - {fileID: 3940360871080213712, guid: 04429dc898eeb454b9aa4e8b256a39d9, type: 3}
+  - {fileID: 1973086199315644312, guid: ca4c8bb1d5cca5b4f82a381676ec9636, type: 3}
+  - {fileID: 7375848852414172108, guid: 41cf21a738bfd1d4486dbf2d1d48cffb, type: 3}
+  - {fileID: 6075442637914141963, guid: be2c076de9526fa48aa0a11b0800ec59, type: 3}
   focus: {fileID: 0}
 --- !u!95 &820667358
 Animator:
@@ -4734,7 +4736,7 @@ PrefabInstance:
     - target: {fileID: 6127502783817364838, guid: ccd1bbac693342c4a8b43d9d57dad83c, type: 3}
       propertyPath: playerMovementScript
       value: 
-      objectReference: {fileID: 820667357}
+      objectReference: {fileID: 0}
     - target: {fileID: 8273860507769019770, guid: ccd1bbac693342c4a8b43d9d57dad83c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4773,7 +4775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10dec410725afb4c8bfee0379f7e6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementScript: {fileID: 820667357}
+  playerMovementScript: {fileID: 0}
   backgroundObjects: []
   respawnPoint: {fileID: 917285004}
 --- !u!61 &911612371
@@ -5686,7 +5688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10dec410725afb4c8bfee0379f7e6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementScript: {fileID: 820667357}
+  playerMovementScript: {fileID: 0}
   backgroundObjects: []
   respawnPoint: {fileID: 917285004}
 --- !u!61 &1015111076
@@ -5813,7 +5815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10dec410725afb4c8bfee0379f7e6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementScript: {fileID: 820667357}
+  playerMovementScript: {fileID: 0}
   backgroundObjects: []
   respawnPoint: {fileID: 917285004}
 --- !u!61 &1019812939
@@ -5940,7 +5942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10dec410725afb4c8bfee0379f7e6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementScript: {fileID: 820667357}
+  playerMovementScript: {fileID: 0}
   backgroundObjects: []
   respawnPoint: {fileID: 917285004}
 --- !u!61 &1020062522
@@ -7139,7 +7141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10dec410725afb4c8bfee0379f7e6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementScript: {fileID: 820667357}
+  playerMovementScript: {fileID: 0}
   backgroundObjects: []
   respawnPoint: {fileID: 917285004}
 --- !u!61 &1231973511
@@ -9575,7 +9577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10dec410725afb4c8bfee0379f7e6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementScript: {fileID: 820667357}
+  playerMovementScript: {fileID: 0}
   backgroundObjects: []
   respawnPoint: {fileID: 917285004}
 --- !u!61 &1566555218
@@ -9848,7 +9850,7 @@ PrefabInstance:
     - target: {fileID: 6127502783817364838, guid: ccd1bbac693342c4a8b43d9d57dad83c, type: 3}
       propertyPath: playerMovementScript
       value: 
-      objectReference: {fileID: 820667357}
+      objectReference: {fileID: 0}
     - target: {fileID: 8273860507769019770, guid: ccd1bbac693342c4a8b43d9d57dad83c, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -9886,7 +9888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10dec410725afb4c8bfee0379f7e6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementScript: {fileID: 820667357}
+  playerMovementScript: {fileID: 0}
   backgroundObjects: []
   respawnPoint: {fileID: 917285004}
 --- !u!61 &1607593658
@@ -10283,6 +10285,75 @@ Transform:
   m_Father: {fileID: 981602204}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1662253147
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_RootOrder
+      value: 92
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.379058
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.6084285
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 56.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790885, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790890, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619389179570790891, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
+      propertyPath: m_Name
+      value: Savepoint (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bd07076d356c81b44b5aa4e17c6b58f3, type: 3}
 --- !u!1 &1669633672
 GameObject:
   m_ObjectHideFlags: 0
@@ -10818,7 +10889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10dec410725afb4c8bfee0379f7e6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementScript: {fileID: 820667357}
+  playerMovementScript: {fileID: 0}
   backgroundObjects: []
   respawnPoint: {fileID: 917285004}
 --- !u!61 &1778072374
@@ -29561,7 +29632,7 @@ PrefabInstance:
     - target: {fileID: 6127502783817364838, guid: ccd1bbac693342c4a8b43d9d57dad83c, type: 3}
       propertyPath: playerMovementScript
       value: 
-      objectReference: {fileID: 820667357}
+      objectReference: {fileID: 0}
     - target: {fileID: 8273860507769019770, guid: ccd1bbac693342c4a8b43d9d57dad83c, type: 3}
       propertyPath: m_Enabled
       value: 0

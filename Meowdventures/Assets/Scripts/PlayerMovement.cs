@@ -206,7 +206,7 @@ public class PlayerMovement : MonoBehaviour {
             Debug.Log("Sonando");
 
         }
-        if (SceneManager.GetActiveScene().name == "Niveltorre")
+        if (SceneManager.GetActiveScene().name == "Nivel torre")
         {
             // Iniciar la música del nivel 2
             FindObjectOfType<AudioManager>().StopPlaying("Theme");
