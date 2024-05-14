@@ -66,6 +66,76 @@ public class BattleSystem : MonoBehaviour
         {
             Debug.LogError("No se pudo encontrar el objeto del enemigo.");
         }
+
+
+
+        if (SceneManager.GetActiveScene().name == "BattleRuby")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
+            Debug.Log("Sonando");
+
+        }
+
+        if (SceneManager.GetActiveScene().name == "EmeraldBattle1")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
+            Debug.Log("Sonando");
+
+        }
+
+
+
+
+        if (SceneManager.GetActiveScene().name == "BattleMusketeer")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "BattleMusketeerBald")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "BattleRuby")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "BattleYellow")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("CombatMusic");
+            Debug.Log("Sonando");
+
+        }
+
+
     }   
 
     IEnumerator SetupBattle()
@@ -222,7 +292,7 @@ public class BattleSystem : MonoBehaviour
 
         }
 
-        if (state == BattleState.WON && SceneManager.GetActiveScene().name == "EmeraldBattle1")
+        if (state == BattleState.WON && SceneManager.GetActiveScene().name == "EmeraldBattle 1")
         {
             dialogueText.text = "You won!";
             enemiesDefeatedCount++;

@@ -18,6 +18,64 @@ public class DialogSystem : MonoBehaviour
         //FindObjectOfType<AudioManager>().StopPlaying("Theme");
         //FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
         //FindObjectOfType<AudioManager>().Play("Level2");
+
+
+        if (SceneManager.GetActiveScene().name == "Dialogues")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("Level2");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "Dialogues1")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("Level2");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "Dialogues2")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("Level2");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "Dialogues3")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("Level2");
+            Debug.Log("Sonando");
+
+        }
+        if (SceneManager.GetActiveScene().name == "Dialogues4")
+        {
+            // Iniciar la música del nivel 2
+            FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().StopPlaying("Level2");
+            FindObjectOfType<AudioManager>().StopPlaying("CombatMusic");
+            FindObjectOfType<AudioManager>().StopPlaying("Level3");
+            FindObjectOfType<AudioManager>().Play("Level2");
+            Debug.Log("Sonando");
+
+        }
+
     }
 
     void Update()
@@ -47,6 +105,9 @@ public class DialogSystem : MonoBehaviour
         currentDialogIndex++;
         ShowDialog();
     }
+
+
+
 
     
 }
