@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour {
 
     public Platform platformScript;
 
+    
+
     public CharacterController2D controller;
 	public Animator animator;
     //public Transform SpawnPoint;
@@ -357,6 +359,13 @@ public class PlayerMovement : MonoBehaviour {
             isTouchingWall = true;
         }
 
+        //if (Collision.gameObject.CompareTag("MovingPlatform"))
+        //{
+        //    transform.parent = Collision.transform;
+        //    Movingplatform = Collision.gameObject.GetComponent<Rigidbody2D>();
+        //    rb.gravtyScale = 10; 
+
+        //}
     }
     void OnTriggerExit2D(Collider2D other)
     {
